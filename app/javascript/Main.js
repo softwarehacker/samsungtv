@@ -8,10 +8,11 @@ var Main =
 
 Main.onLoad = function()
 {
+	
 	// Enable key event processing
 	this.enableKeys();
 	widgetAPI.sendReadyEvent();
-	
+	document.write("<h1>Hello World!</h1><p>Have a nice day!</p>");
 	// Check for the various File API support.
 	if (window.File && window.FileReader && window.FileList && window.Blob) {
 	  // Great success! All the File APIs are supported.
@@ -34,7 +35,7 @@ function readTextFile(file)
             if(rawFile.status === 200 || rawFile.status == 0)
             {
                 var allText = rawFile.responseText;
-                alert(allText);
+                document.write("<p>"+allText+"</p>");
             }
         }
     }
