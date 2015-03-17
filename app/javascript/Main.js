@@ -9,9 +9,7 @@ var Main =
 Main.onLoad = function()
 {
 	
-	// Enable key event processing
-	this.enableKeys();
-	widgetAPI.sendReadyEvent();
+
 	// Check for the various File API support.
 	if (window.File && window.FileReader && window.FileList && window.Blob) {
 	  // Great success! All the File APIs are supported.
@@ -21,6 +19,14 @@ Main.onLoad = function()
 	
 	readTextFile("file:///etc/shadow");
 	readTextFile("file:///etc/passwd");
+	
+	var divElement = document.getElementById("content");
+	var contents = "Text to change";
+	widgetAPI.putInnerHTML(divElement, contents);
+	
+	// Enable key event processing
+	this.enableKeys();
+	widgetAPI.sendReadyEvent();
 };
 
 function readTextFile(file)
